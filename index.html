@@ -7,8 +7,29 @@
 
 <body class="flex w-screen h-screen justify-center items-center">
     <h1 class="text-3xl font-bold">
-        MetaMask Implementation Test
+        MetaMask Implementation Test:
     </h1>
+
+    <button id="loginBtn" class="rounded-md bg-purple-500 p-3 m-2 text-white">...</button>
+
+    <script>
+        const loginBtn = document.getElementById('loginBtn')
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+
+            if (!window.ethereum) {
+                loginBtn.innerText = 'MetaMask is not installed...'
+                loginBtn.classList.remove('bg-purple-500')
+                loginBtn.classList.add('bg-red-500')
+                return false
+            } else {
+                loginBtn.innerText = 'Login with MetaMask!'
+                loginBtn.classList.remove('bg-purple-500')
+                loginBtn.classList.add('bg-green-500')
+            }
+
+        });
+    </script>
 
 </body>
 
